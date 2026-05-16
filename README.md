@@ -3,6 +3,7 @@
 A GitOps-friendly Kubernetes deployment structure for webapp (nginx) across staging and production environments using Kustomize overlays and Sealed Secrets for secret management.
 
 ## Repository Structure
+````
 k8s/
 ├── base/
 │   ├── deployment.yaml
@@ -19,7 +20,7 @@ k8s/
         ├── deployment-patch.yaml
         ├── sealed-secret.yaml
         └── kustomization.yaml
-
+````
 ## Environment Differences
 
 | Setting   | Staging    | Production  |
