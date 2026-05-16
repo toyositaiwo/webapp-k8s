@@ -19,6 +19,7 @@ k8s/
 +-- deployment-patch.yaml
 +-- sealed-secret.yaml
 +-- kustomization.yaml
+
 ## Environment Differences
 
 | Setting   | Staging    | Production  |
@@ -57,15 +58,15 @@ kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/latest/
 
 ### Generating Real Sealed Secrets
 kubeseal --fetch-cert > pub-cert.pem
-
-kubectl create secret generic webapp-secret \
-  --from-literal=DB_PASSWORD='your-db-password' \
-  --from-literal=API_KEY='your-api-key' \
-  --namespace=staging \
-  --dry-run=client -o yaml > /tmp/secret.yaml
-
+kubectl create secret generic webapp-secret 
+--from-literal=DB_PASSWORD='your-db-password' 
+--from-literal=API_KEY='your-api-key' 
+--namespace=staging 
+--dry-run=client -o yaml > /tmp/secret.yaml
 kubeseal --cert pub-cert.pem --format yaml < /tmp/secret.yaml \
-  > k8s/overlays/staging/sealed-secret.yaml
+
+k8s/overlays/staging/sealed-secret.yaml
+
 
 Note: The sealed-secret.yaml files in this repo contain placeholder stub values.
 Replace them with real sealed values generated against your cluster public key before deploying.
