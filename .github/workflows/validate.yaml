@@ -1,0 +1,32 @@
+name: Validate Kustomize
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate Kustomize Builds
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install kustomize
+        run: |
+          curl -sLo kustomize.tar.gz https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.3.0/kustomize_v5.3.0_linux_amd64.tar.gz
+          tar -xzf kustomize.tar.gz
+          chmod +x kustomize
+          sudo mv kustomize /usr/local/bin/
+
+      - name: Validate staging build
+        run: kustomize build k8s/overlays/staging
+
+      - name: Validate production build
+        run: kustomize build k8s/overlays/production
+
+      - name: Confirm both builds succeeded
+        run: echo "Both staging and production Kustomize builds passed!"
