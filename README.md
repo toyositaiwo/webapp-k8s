@@ -1,24 +1,24 @@
-# webapp � Kubernetes Deployment (Kustomize + Sealed Secrets)
+﻿# webapp — Kubernetes Deployment (Kustomize + Sealed Secrets)
 
 A GitOps-friendly Kubernetes deployment structure for webapp (nginx) across staging and production environments using Kustomize overlays and Sealed Secrets for secret management.
 
 ## Repository Structure
 k8s/
-+-- base/
-�   +-- deployment.yaml
-�   +-- service.yaml
-�   +-- kustomization.yaml
-+-- overlays/
-+-- staging/
-�   +-- namespace.yaml
-�   +-- deployment-patch.yaml
-�   +-- sealed-secret.yaml
-�   +-- kustomization.yaml
-+-- production/
-+-- namespace.yaml
-+-- deployment-patch.yaml
-+-- sealed-secret.yaml
-+-- kustomization.yaml
+├── base/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── kustomization.yaml
+└── overlays/
+├── staging/
+│   ├── namespace.yaml
+│   ├── deployment-patch.yaml
+│   ├── sealed-secret.yaml
+│   └── kustomization.yaml
+└── production/
+├── namespace.yaml
+├── deployment-patch.yaml
+├── sealed-secret.yaml
+└── kustomization.yaml
 
 ## Environment Differences
 
