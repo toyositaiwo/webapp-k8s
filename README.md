@@ -9,16 +9,16 @@ k8s/
 │   ├── service.yaml
 │   └── kustomization.yaml
 └── overlays/
-├── staging/
-│   ├── namespace.yaml
-│   ├── deployment-patch.yaml
-│   ├── sealed-secret.yaml
-│   └── kustomization.yaml
-└── production/
-├── namespace.yaml
-├── deployment-patch.yaml
-├── sealed-secret.yaml
-└── kustomization.yaml
+    ├── staging/
+    │   ├── namespace.yaml
+    │   ├── deployment-patch.yaml
+    │   ├── sealed-secret.yaml
+    │   └── kustomization.yaml
+    └── production/
+        ├── namespace.yaml
+        ├── deployment-patch.yaml
+        ├── sealed-secret.yaml
+        └── kustomization.yaml
 
 ## Environment Differences
 
