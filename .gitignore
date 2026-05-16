@@ -1,0 +1,10 @@
+**/secret.yaml
+**/*-raw.yaml
+**/*.key
+**/*.pem
+pub-cert.pem
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
